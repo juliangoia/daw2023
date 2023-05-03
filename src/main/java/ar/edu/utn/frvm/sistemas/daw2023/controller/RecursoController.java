@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/recursos/")
 public class RecursoController {
@@ -20,5 +22,10 @@ public class RecursoController {
     @GetMapping("/{id}")
     public Recurso getRecursoById(@PathVariable Long id){
         return this.recursoService.getRecursoById(id);
+    }
+
+    @GetMapping
+    public List<Recurso> getRecursos(){
+        return this.recursoService.getRecursos();
     }
 }
